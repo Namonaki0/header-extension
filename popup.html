@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+  <head>
+    <style>
+      body {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0.5rem;
+      }
+      .popup-container {
+        font-family: monospace, Arial, sans-serif;
+        font-size: 16px;
+        min-width: 220px;
+      }
+      .switch {
+        position: relative;
+        display: inline-block;
+        width: 60px;
+        height: 34px;
+        margin-left: 1rem;
+      }
+
+      .switch input {
+        opacity: 0;
+        width: 0;
+        height: 0;
+      }
+
+      .slider {
+        position: absolute;
+        cursor: pointer;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background-color: #ccc;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+      }
+
+      .slider:before {
+        position: absolute;
+        content: "";
+        height: 26px;
+        width: 26px;
+        left: 4px;
+        bottom: 4px;
+        background-color: white;
+        -webkit-transition: 0.4s;
+        transition: 0.4s;
+      }
+
+      input:checked + .slider {
+        background-color: #2196f3;
+      }
+
+      input:focus + .slider {
+        box-shadow: 0 0 1px #2196f3;
+      }
+
+      input:checked + .slider:before {
+        -webkit-transform: translateX(26px);
+        -ms-transform: translateX(26px);
+        transform: translateX(26px);
+      }
+
+      .slider.round {
+        border-radius: 34px;
+      }
+
+      .slider.round:before {
+        border-radius: 50%;
+      }
+
+      .container {
+        display: flex;
+        align-items: center;
+      }
+
+      .popup-container {
+        padding: 1rem;
+        width: max-content;
+      }
+
+      .popup-container h3 {
+        margin: 0 0 1rem;
+      }
+
+      .header-color {
+        display: block;
+        height: 34px;
+        width: 6px;
+        margin-right: 12px;
+      }
+
+      .header-color.h1 {
+        background: rgb(228, 50, 50);
+      }
+      .header-color.h2 {
+        background: rgb(52, 118, 198);
+      }
+      .header-color.h3 {
+        background: rgb(20, 194, 87);
+      }
+      .header-color.h4 {
+        background: rgb(231, 162, 23);
+      }
+      .header-color.h5 {
+        background: rgb(171, 143, 218);
+      }
+      .header-color.h6 {
+        background: rgb(1, 89, 152);
+      }
+
+      .headers-count {
+        margin-left: 16px;
+      }
+
+      .reset-container {
+        margin-top: 1.2rem;
+      }
+
+      .reset-container button {
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        background: #4f5860;
+        border: none;
+        width: 100%;
+        padding: 0.8rem 1rem;
+        color: white;
+        cursor: pointer;
+        transition: background 100ms linear;
+      }
+      .reset-container button:hover {
+        background: #496074;
+      }
+
+      .container.disabled {
+        opacity: 0.5;
+        pointer-events: none;
+      }
+      .container.disabled .slider {
+        cursor: not-allowed;
+        background-color: #ddd !important;
+      }
+    </style>
+  </head>
+  <body>
+    <main class="popup-container">
+      <h3>Activate Headers</h3>
+      <div class="container" data-type="h1">
+        <div class="header-color h1"></div>
+        <p>H1</p>
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider" id="h1-slider"></span>
+        </label>
+        <div class="headers-count"><span>0</span> headers</div>
+      </div>
+      <div class="container" data-type="h2">
+        <div class="header-color h2"></div>
+        <p>H2</p>
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider" id="h2-slider"></span>
+        </label>
+        <div class="headers-count"><span>0</span> headers</div>
+      </div>
+      <div class="container" data-type="h3">
+        <div class="header-color h3"></div>
+        <p>H3</p>
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider" id="h3-slider"></span>
+        </label>
+        <div class="headers-count"><span>0</span> headers</div>
+      </div>
+      <div class="container" data-type="h4">
+        <div class="header-color h4"></div>
+        <p>H4</p>
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider" id="h4-slider"></span>
+        </label>
+        <div class="headers-count"><span>0</span> headers</div>
+      </div>
+      <div class="container" data-type="h5">
+        <div class="header-color h5"></div>
+        <p>H5</p>
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider" id="h5-slider"></span>
+        </label>
+        <div class="headers-count"><span>0</span> headers</div>
+      </div>
+      <div class="container" data-type="h6">
+        <div class="header-color h6"></div>
+        <p>H6</p>
+        <label class="switch">
+          <input type="checkbox" />
+          <span class="slider" id="h6-slider"></span>
+        </label>
+        <div class="headers-count"><span>0</span> headers</div>
+      </div>
+      <div class="reset-container">
+        <button id="reset-btn">reset</button>
+      </div>
+    </main>
+    <script src="popup.js" defer></script>
+  </body>
+</html>

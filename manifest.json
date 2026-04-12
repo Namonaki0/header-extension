@@ -1,6 +1,6 @@
 {
   "manifest_version": 3,
-  "name": "Heading Highlighter",
+  "name": "Header highlighter Extension",
   "version": "1.0.0",
   "description": "Highlight H1–H6 headings on any webpage with customizable colors.",
   "permissions": ["storage", "activeTab", "scripting"],

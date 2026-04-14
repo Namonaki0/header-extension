@@ -49,12 +49,12 @@ async function updateAllCounts(tabId) {
     const countSpan = row.querySelector(".headers-count span");
     const checkbox = row.querySelector('input[type="checkbox"]');
 
-    if (!type || !countSpan) continue;
+    if (!type || !countSpan || !checkbox) continue;
 
     const count = await getCount(tabId, type);
     countSpan.textContent = count;
 
-    if (count == 0) {
+    if (count === 0) {
       checkbox.checked = false;
       checkbox.disabled = true;
       row.classList.add("disabled");
